@@ -14,8 +14,14 @@ export function StoreItem ( {id, name, price, imgUrl }:storeItemProps){
     variant="top" 
     src={imgUrl} 
     height="200px"
+   //this is for maintaining aspect ratio 
     style={{ objectFit: 'cover'}}
     />
+    <Card.Body className="d-flex flex-column">
+      <Card.Title className="d-flex justify-content-space-between align-items-baseline mb-4">
+       <span>{name}</span>
+      </Card.Title>
+    </Card.Body>
   </Card>
   )
 }
