@@ -1,5 +1,5 @@
 import { Card } from 'react-bootstrap'
-
+import { currencyFormater } from '../utilities/currencyFormater'
 type storeItemProps= {
   id: number,
   name: string,
@@ -18,8 +18,9 @@ export function StoreItem ( {id, name, price, imgUrl }:storeItemProps){
     style={{ objectFit: 'cover'}}
     />
     <Card.Body className="d-flex flex-column">
-      <Card.Title className="d-flex justify-content-space-between align-items-baseline mb-4">
-       <span>{name}</span>
+      <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+       <span className="fs-2">{name}</span>
+       <span className="ms-2 text-muted">{ currencyFormater(price)}</span>
       </Card.Title>
     </Card.Body>
   </Card>
