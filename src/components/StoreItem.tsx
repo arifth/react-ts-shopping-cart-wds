@@ -9,7 +9,7 @@ type storeItemProps= {
 
 export function StoreItem ( {id, name, price, imgUrl }:storeItemProps){
   return (
-  <Card>
+  <Card className="h-100">
     <Card.Img 
     variant="top" 
     src={imgUrl} 
