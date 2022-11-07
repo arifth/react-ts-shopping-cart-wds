@@ -1,5 +1,7 @@
-import { Card } from 'react-bootstrap'
+import { Card ,Button } from 'react-bootstrap'
 import { currencyFormater } from '../utilities/currencyFormater'
+import { useShoppingCart } from '../context/shoppingCartContext';
+
 type storeItemProps= {
   id: number,
   name: string,
@@ -8,6 +10,11 @@ type storeItemProps= {
 }
 
 export function StoreItem ( {id, name, price, imgUrl }:storeItemProps){
+  
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity , removeFromCart } = useShoppingCart();
+  
+  const quantity = 0
+
   return (
   <Card className="h-100">
     <Card.Img 
@@ -22,6 +29,9 @@ export function StoreItem ( {id, name, price, imgUrl }:storeItemProps){
        <span className="fs-2">{name}</span>
        <span className="ms-2 text-muted">{ currencyFormater(price)}</span>
       </Card.Title>
+      <div className="mt-auto">
+        {quantity === 0 ?(<Button className="w-100">add To cart </Button>): null }
+      </div>
     </Card.Body>
   </Card>
   )
