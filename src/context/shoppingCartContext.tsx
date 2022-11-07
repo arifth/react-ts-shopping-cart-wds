@@ -72,12 +72,14 @@ export function ShoppingCartProvider({children}:ShoppingCartProviderProps){
   }
 
 
-  return <ShoppingCartContext.Provider value={{ 
+  return (
+  <ShoppingCartContext.Provider value={{ 
     getItemQuantity, 
     increaseCartQuantity, 
     decreaseCartQuantity,
     removeFromCart
-    }}> 
-           { children }
-         </ShoppingCartContext.Provider>
+      }}> 
+    { children }
+  </ShoppingCartContext.Provider>)
 }
+
